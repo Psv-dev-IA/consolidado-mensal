@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{TITULO_ARQUIVO}}</title>
+<style>
+/* ============================================================
+   IDENTIDADE VISUAL
+   Os valores abaixo são o padrão neutro. Substitua pela paleta que
+   sai de scripts/extrair_cores.py rodado na logo do consultor, ou
+   pelos hex que ele tiver informado. Nada mais no CSS precisa mudar.
+   ============================================================ */
+:root{
+  --cor-principal:#1A1A1A;
+  --cor-secundaria:#F5F5F5;
+  --cor-texto:#1A1A1A;
+  --cor-negativo:#B3261E;
+  --cor-linha:#DDDDDD;
+  --fonte-titulo:"Georgia","Times New Roman",serif;
+  --fonte-corpo:"Helvetica Neue",Arial,sans-serif;
+  --alinhamento-cabecalho:left;   /* left | center | right */
+  --altura-logo:48px;
+  --largura-logo:220px;
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+*{box-sizing:border-box;}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+body{
+  margin:0;
+  padding:0 24px 48px;
+  background:#fff;
+  color:var(--cor-texto);
+  font-family:var(--fonte-corpo);
+  font-size:15px;
+  line-height:1.65;
+}
+.pagina{max-width:760px;margin:0 auto;}
+
+/* ============================================================
+   CABEÇALHO
+   ============================================================ */
+.cabecalho{
+  display:flex;
+  flex-direction:column;
+  align-items:var(--alinhamento-cabecalho);
+  text-align:var(--alinhamento-cabecalho);
+  gap:10px;
+  padding:36px 0 18px;
+  border-bottom:2px solid var(--cor-principal);
+}
+.cabecalho.center{align-items:center;text-align:center;}
+.cabecalho.right{align-items:flex-end;text-align:right;}
+.logo{
+  max-height:var(--altura-logo);
+  max-width:var(--largura-logo);
+  width:auto;
+  height:auto;
+  object-fit:contain;
+  display:block;
+}
+.monograma{
+  height:var(--altura-logo);width:var(--altura-logo);
+  display:flex;align-items:center;justify-content:center;
+  background:var(--cor-principal);color:#fff;
+  font-family:var(--fonte-titulo);font-size:20px;letter-spacing:1px;
+}
+.escritorio{
+  font-family:var(--fonte-titulo);
+  font-size:17px;
+  letter-spacing:.3px;
+  color:var(--cor-principal);
+}
+
+/* ============================================================
+   TÍTULO DO MATERIAL
+   ============================================================ */
+.titulo{margin:30px 0 4px;}
+.titulo h1{
+  font-family:var(--fonte-titulo);
+  font-size:26px;
+  font-weight:600;
+  line-height:1.25;
+  margin:0;
+  color:var(--cor-principal);
+}
+.titular{
+  font-family:var(--fonte-corpo);
+  font-size:15px;
+  font-weight:600;
+  color:var(--cor-texto);
+  margin-top:8px;
+}
+.periodo{
+  font-size:13px;
+  letter-spacing:.4px;
+  text-transform:uppercase;
+  color:#666;
+  margin-top:6px;
+}
+
+/* ============================================================
+   TABELAS
+   ============================================================ */
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin:26px 0 10px;
+  font-size:15px;
+}
+thead th{
+  background:var(--cor-principal);
+  color:#fff;
+  font-family:var(--fonte-corpo);
+  font-weight:600;
+  font-size:12px;
+  letter-spacing:.6px;
+  text-transform:uppercase;
+  text-align:left;
+  padding:11px 14px;
+}
+thead th.num{text-align:right;}
+tbody td{
+  padding:11px 14px;
+  border-bottom:1px solid var(--cor-linha);
+  vertical-align:top;
+}
+tbody td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;}
+tbody tr:last-child td{border-bottom:1px solid var(--cor-principal);}
+tbody tr.total td{font-weight:700;background:var(--cor-secundaria);}
+.negativo{color:var(--cor-negativo);}
+.metodo{
+  font-size:13px;
+  color:#555;
+  line-height:1.55;
+  margin:6px 0 0;
+}
+
+/* ============================================================
+   QUADRO DE CÂMBIO
+   ============================================================ */
+.quadro{
+  background:var(--cor-secundaria);
+  border-left:3px solid var(--cor-principal);
+  padding:18px 20px;
+  margin:26px 0;
+}
+.quadro h2{
+  font-family:var(--fonte-titulo);
+  font-size:15px;
+  margin:0 0 12px;
+  color:var(--cor-principal);
+}
+.quadro table{margin:0;font-size:14px;}
+.quadro tbody td{border-bottom:1px solid rgba(0,0,0,.08);padding:8px 0;}
+.quadro tbody tr:last-child td{border-bottom:none;}
+.quadro p{margin:12px 0 0;font-size:14px;}
+
+/* ============================================================
+   RESUMO EM UMA FRASE
+   ============================================================ */
+.fecho{
+  font-size:16px;
+  line-height:1.6;
+  margin:22px 0 0;
+}
+
+/* ============================================================
+   REPORT
+   ============================================================ */
+.report{
+  margin-top:40px;
+  padding-top:28px;
+  border-top:1px solid var(--cor-linha);
+}
+.report p{margin:0 0 16px;}
+.fontes{
+  font-size:12.5px;
+  font-style:italic;
+  color:#666;
+  line-height:1.55;
+  margin-top:22px;
+}
+
+/* ============================================================
+   RODAPÉ
+   ============================================================ */
+.rodape{
+  margin-top:44px;
+  padding-top:18px;
+  border-top:1px solid var(--cor-linha);
+  font-size:12px;
+  color:#666;
+  line-height:1.6;
+}
+.rodape .contato{color:var(--cor-principal);font-weight:600;}
+.rodape .disclaimer{margin-top:10px;font-size:11px;color:#888;}
+
+/* ============================================================
+   IMPRESSÃO EM PDF
+   ============================================================ */
+@page{size:A4;margin:14mm 12mm;}
+@media print{
+  body{padding:0;font-size:12.5px;}
+  .pagina{max-width:none;}
+  .cabecalho{padding-top:0;}
+  table,.quadro,.rodape{page-break-inside:avoid;}
+  .report{page-break-before:auto;}
+  h1,h2{page-break-after:avoid;}
+}
+</style>
+</head>
+<body>
+<div class="pagina">
+
+  <!-- CABEÇALHO. Trocar a classe para center ou right conforme a identidade. -->
+  <header class="cabecalho">
+    <!-- Logo embutida em base64, ou o monograma abaixo se não houver arquivo -->
+    <img class="logo" src="data:image/png;base64,{{LOGO_BASE64}}" alt="{{NOME_ESCRITORIO}}">
+    <!-- <div class="monograma">{{INICIAIS}}</div> -->
+    <div class="escritorio">{{NOME_ESCRITORIO}}</div>
+  </header>
+
+  <!-- TÍTULO -->
+  <div class="titulo">
+    <h1>{{TITULO_MATERIAL}}</h1>
+    <!-- Nome COMPLETO do titular, em caixa mista. Sem abreviar, sem CPF, sem conta. -->
+    <div class="titular">{{NOME_TITULAR}}</div>
+    <div class="periodo">{{PERIODO}}</div>
+  </div>
+
+  <!-- PARTE 1: CONSOLIDADO -->
+  <!-- Linha por instituição só quando houver mais de um relatório. -->
+  <table>
+    <thead>
+      <tr><th>Item</th><th class="num">Valor</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Patrimônio na data final</td><td class="num">{{PATRIMONIO}}</td></tr>
+      <tr><td>Retorno financeiro no período</td><td class="num">{{RETORNO}}</td></tr>
+      <tr><td>Rentabilidade da carteira</td><td class="num">{{RENTABILIDADE}}</td></tr>
+      <!-- As linhas de CDI SAEM quando a carteira for só de ativos internacionais -->
+      <tr><td>CDI do período</td><td class="num">{{CDI}}</td></tr>
+      <tr><td>Percentual do CDI</td><td class="num">{{PERC_CDI}}</td></tr>
+      <!-- Linha abaixo SÓ quando o percentual do CDI ficar negativo ou acima de 200%
+      <tr><td>Diferença contra o CDI</td><td class="num">{{DIF_CDI}}</td></tr> -->
+    </tbody>
+  </table>
+  <p class="metodo">{{METODO_CALCULO}}</p>
+
+  <!-- QUADRO DE CÂMBIO. Só quando houver parte internacional. -->
+  <div class="quadro">
+    <h2>Rendimento do ativo e efeito do câmbio</h2>
+    <table>
+      <tbody>
+        <tr><td>Retorno da carteira na moeda original</td><td class="num">{{RET_MOEDA}}</td></tr>
+        <tr><td>Variação da moeda contra o real no período</td><td class="num">{{VAR_MOEDA}}</td></tr>
+        <tr><td>Retorno final em reais</td><td class="num">{{RET_REAIS}}</td></tr>
+        <tr><td>Retorno financeiro em reais</td><td class="num">{{RET_FIN_REAIS}}</td></tr>
+      </tbody>
+    </table>
+    <p>{{FRASE_CAMBIO}}</p>
+  </div>
+
+  <!-- FECHO: uma frase, no máximo duas -->
+  <p class="fecho">{{FRASE_FECHO}}</p>
+
+  <!-- PARTE 2: REPORT. Sem título de seção, sem subtítulo, sem abertura. -->
+  <section class="report">
+    {{PARAGRAFOS_REPORT}}
+    <p class="fontes">{{LINHA_FONTES}}</p>
+  </section>
+
+  <!-- RODAPÉ -->
+  <footer class="rodape">
+    <div class="contato">{{NOME_CONSULTOR}}</div>
+    <div>{{CONTATO}}</div>
+    <div class="disclaimer">{{DISCLAIMER}}</div>
+  </footer>
+
+</div>
+</body>
+</html>

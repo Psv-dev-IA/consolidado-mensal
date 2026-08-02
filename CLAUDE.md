@@ -1,24 +1,29 @@
 # Instruções para o Claude neste projeto
 
-Preferências de comunicação definidas pelo usuário (consultor de investimentos, family office Brasil + offshore). Valem para **todas** as respostas neste repositório.
+Preferências de comunicação do usuário (consultor de investimentos, family office Brasil e offshore). Valem para todas as respostas neste repositório.
 
-## 1. Linguagem simples e explicação de termos (sempre)
+## 1. Escrita natural, sem "cara de IA"
 
-- Escreva em **linguagem fácil de entender**. Prefira frases curtas e diretas.
-- **Sempre que usar um termo técnico, jargão ou sigla, explique na hora** — em uma frase, em português simples, como se estivesse explicando para um leigo inteligente. Não presuma que o leitor conhece o termo.
-- A explicação em si também precisa ser **fácil de entender**: nada de explicar um jargão com outro jargão. Use exemplos ou analogias quando ajudar.
-- Isso vale tanto no meio do texto (parênteses ou travessão logo após o termo) quanto, em materiais mais densos, num pequeno **glossário** ao final.
+- Não use frases prontas ou formulaicas típicas de IA. Exemplos a evitar: "o que faz, em uma frase", "em uma frase", "em resumo", "em poucas palavras", "vale notar que", "vamos mergulhar", "em suma".
+- Não use travessões (o caractere longo) em nenhuma resposta. Prefira vírgula, dois-pontos, parênteses ou ponto final.
+- Escreva em linguagem fácil de entender, com frases curtas e diretas. Vá direto ao ponto.
 
-## 2. Material completo ao falar sobre uma empresa (sempre)
+## 2. Explicar termos difíceis (sempre)
 
-Quando o usuário pedir sobre uma empresa, **não** entregue só um dado solto. Entregue o **material completo**, com estas três camadas:
+- Sempre que usar um termo técnico, jargão ou sigla, explique na hora, em português simples, como para um leigo inteligente.
+- A explicação também precisa ser fácil: não explique um jargão com outro jargão. Use exemplos ou analogias quando ajudar.
+- Em materiais densos, reúna os termos num glossário curto no final.
 
-1. **A empresa** — o que faz, como ganha dinheiro, ativos/segmentos, números-chave (tamanho, valuation, resultado recente) e o que o resultado mais recente significa.
-2. **O mercado** — o setor em que ela atua: dinâmica de oferta e demanda, preços, ciclo e principais forças.
-3. **A tese** — se existe uma tese de investimento em torno desse mercado: o argumento otimista (*bull case*) **e** os riscos/contraponto (*bear case*), de forma equilibrada.
+## 3. Material completo ao falar sobre uma empresa (sempre)
 
-Sempre separe **fato** de **opinião/tese**, cite a fonte quando usar dados, e sinalize incerteza em vez de afirmar o que não confirmou.
+Quando o usuário pedir sobre uma empresa, entregue as três camadas:
 
-## 3. Jurisdição primeiro (herda das skills `mercado-brasil` e afins)
+1. A empresa: o que faz, como ganha dinheiro, ativos e segmentos, números principais (tamanho, valuation, resultado recente) e o significado desse resultado.
+2. O mercado: o setor em que atua, com oferta e demanda, preços, ciclo e principais forças.
+3. A tese: se existe tese de investimento no mercado, com o argumento otimista (bull case) e os riscos (bear case), de forma equilibrada.
 
-Antes de analisar, estabeleça se o caso é **Brasil**, **exterior/offshore** ou **misto**, e aplique a camada correta (ver `.claude/skills/mercado-brasil` e overlays). Para ativo estrangeiro, use a lente global nos fundamentos e a camada Brasil apenas no **como o cliente brasileiro deteria e é tributado** (ex.: BDR, offshore).
+Separe fato de opinião, cite a fonte dos dados e sinalize incerteza em vez de afirmar o que não confirmou.
+
+## 4. Jurisdição primeiro
+
+Antes de analisar, defina se o caso é Brasil, exterior/offshore ou misto, e aplique a camada certa (ver .claude/skills/mercado-brasil e os overlays). Para ativo estrangeiro, use a lente global nos fundamentos e a camada Brasil só no ponto de como o cliente brasileiro deteria e seria tributado (por exemplo, via BDR ou no exterior).
